@@ -7,13 +7,6 @@ const mime = require('mime-types')
 const { PutObjectCommand, S3Client, S3Client } = require('@aws-sdk/client-s3')
 
 
-const S3Client = new S3Client({
-    region: '',
-    Credential :{
-        accessKeyId: '',
-        secretAccessKey: '', 
-    }
-})
 
 
 async function init(){
