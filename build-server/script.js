@@ -16,7 +16,19 @@ const S3Client = new S3Client({
 })
 
 
+async function init(){
+    console.log('executing script.js');
+    // redorecting to outputh folder
+    const outDirPath = path.join(__dirname, 'output')
 
+    const p =  exec(`cd ${outDirPath} && npm install && npm run build`)
+
+    p.stdout.on('data', function(data){
+        console.log(data.toString())
+    })
+    p.stdout.on('error', function(data){
+        console.log('error', data.toString())
+    })
 
     p.on('close', async function(){
         console.log('Build Complete')
